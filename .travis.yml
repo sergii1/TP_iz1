@@ -1,0 +1,12 @@
+language: cpp
+os: linux
+compiler:
+  - gcc
+
+
+script:
+  # скрипт сборки и тестирования проекта:
+  - mkdir build
+  - cd build
+  - cmake .. -DCMAKE_BUILD_TYPE=Debug -DTARGET_CPU=x86
+  - cmake --build . --target Tests
