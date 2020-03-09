@@ -2,10 +2,21 @@ language: cpp
 os: linux
 compiler:
   - gcc
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-6
+      - g++-6
+      - valgrind
 
 
 script:
   # скрипт сборки и тестирования проекта:
+#  - cmake -DCMAKE_CXX_COMPILER="g++-6" ..
+#  - make
+#  - ctest -T memcheck
   - mkdir build
   - cd build
   - cmake ../tests -DCMAKE_BUILD_TYPE=Debug -DTARGET_CPU=x86
