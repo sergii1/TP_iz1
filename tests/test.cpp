@@ -2,10 +2,10 @@
 // Created by sergiy on 06.03.2020.
 //
 #include "gtest/gtest.h"
-#include "../main.c"
+#include <lib.c>
 
 TEST(test_functional_part, Test1) {
-  char *s = "<Tag name=\"sergiy\" name=\"sergIy\">";
+  const char *s = "<Tag name=\"sergiy\" name=\"sergIy\">";
   Tag *tag = initialize_tag(s);
   unsigned num = amount_atributes_number(s);
 
@@ -24,7 +24,7 @@ TEST(test_functional_part, Test1) {
 }
 
 TEST(test_functional_part, Test2){
-  char *s = "</Tag name=\"sergiy\" name=\"sergIy\">";
+  const char *s = "</Tag name=\"sergiy\" name=\"sergIy\">";
   Tag *tag = initialize_tag(s);
   unsigned num = amount_atributes_number(s);
 
@@ -43,7 +43,7 @@ TEST(test_functional_part, Test2){
 }
 
 TEST(test_functional_part, Test3){
-  char *s = "</Tag>";
+  const char *s = "</Tag>";
   Tag *tag = initialize_tag(s);
   unsigned num = amount_atributes_number(s);
 
