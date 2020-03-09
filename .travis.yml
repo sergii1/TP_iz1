@@ -7,8 +7,6 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - gcc-6
-      - g++-6
       - valgrind
 
 
@@ -21,4 +19,4 @@ script:
   - cd build
   - cmake ../tests -DCMAKE_BUILD_TYPE=Debug -DTARGET_CPU=x86
   - cmake --build . --target Tests
-  - valgrind --tool=memcheck --xml=yes --xml-file=/tmp/valgrind --gen-suppressions=all --leak-check=full --track-origins=yes --vgdb=no ./Tests
+  - valgrind --tool=memcheck --gen-suppressions=all --leak-check=full --track-origins=yes --vgdb=no ./Tests
