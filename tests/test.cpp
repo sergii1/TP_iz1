@@ -14,7 +14,6 @@ TEST(test_functional_part, Test1) {
   ASSERT_STREQ(tag->name, "Tag");
   ASSERT_STREQ(tag->atributes[0], "name=\"sergiy\"");
   ASSERT_STREQ(tag->atributes[1], "name=\"sergIy\"");
-
   for (int j = 0; j < num; j++) {
     free(tag->atributes[j]);
   }

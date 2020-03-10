@@ -14,7 +14,7 @@ int main() {
   char ** s = (char**)calloc(1, sizeof(char*));
   size_t * size = (size_t*)calloc(1, sizeof(size_t));
   getline(s,size,stdin);
-
+  (*s)[strlen(*s)-1]='\0';
   Tag *tag = initialize_tag(*s);
   if (!tag) {
     printf("ERr2");
