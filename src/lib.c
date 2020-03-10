@@ -85,7 +85,16 @@ Tag *initialize_tag(const char *s) {
   if (!tag) {
     return NULL;
   }
+
+  if(!strchr(s, '<') || !strchr(s,'>'))
+  {
+    free(tag);
+    return NULL;
+  }
+
   unsigned num = amount_atributes_number(s);
+
+
   tag->isopening = tag_is_open(s);
   tag->name = get_tag_name(s);
 

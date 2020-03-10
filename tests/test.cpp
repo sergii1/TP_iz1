@@ -59,3 +59,18 @@ TEST(test_functional_part, Test3){
   free(tag->name);
   free(tag);
 }
+
+TEST(test_functional_part, Test4){
+  const char *s = "";
+  Tag *tag = initialize_tag(s);
+  unsigned num = amount_atributes_number(s);
+  ASSERT_EQ((tag==NULL), true);
+  free(tag);
+}
+
+TEST(test_functional_part, Test5){
+  const char *s = "sdfasdfasdf";
+  Tag *tag = initialize_tag(s);
+  ASSERT_EQ((tag==NULL), true);
+  free(tag);
+}
