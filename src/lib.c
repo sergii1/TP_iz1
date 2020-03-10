@@ -56,7 +56,8 @@ char **parse_atributes(const char *str, unsigned num, int *status_code) {
   unsigned k = 0;
   char c;
   bool in_quote = false;
-  for (unsigned i = 0; i < strlen(str) - 1; ++i) {
+  unsigned len = strlen(str);
+  for (unsigned i = 0; i < len - 2; ++i) {
 
     c = str[i];
     if (c != ' ' || in_quote) {

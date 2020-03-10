@@ -11,17 +11,23 @@
 
 int main() {
 
-  const char *s = "</Tag>";
-  Tag *tag = initialize_tag(s);
+  char ** s = (char**)calloc(1, sizeof(char*));
+  size_t * size = (size_t*)calloc(1, sizeof(size_t));
+  getline(s,size,stdin);
+
+  Tag *tag = initialize_tag(*s);
   if (!tag) {
     printf("ERr2");
     return 0;
   }
-  unsigned num = amount_atributes_number(s);
+  unsigned num = amount_atributes_number(*s);
   for (int j = 0; j < num; j++) {
     free(tag->atributes[j]);
   }
   free(tag->atributes);
   free(tag->name);
   free(tag);
+  free(size);
+  free(*s);
+  free(s);
 }
